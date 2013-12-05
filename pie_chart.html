@@ -1,0 +1,93 @@
+<!-- 
+#  Recsys-frontend, Copyright (c) 2013, Simon Dooms
+#  http://github.com/sidooms/recsys-frontend
+#  MIT License
+# 
+-->
+<style>
+.arc path {
+  stroke: #fff;
+}
+
+</style>
+<div id='pie_chart'></div>
+<script>
+$( document ).ready(function() {
+    init_the_d3_pie_chart();
+    pie_chart_initialized = true;
+});
+
+var the_pie_svg ;
+var arc ;
+var pie ;
+var colorsss ;
+var labelr;
+var radius;
+
+    function init_the_d3_pie_chart()
+    {
+    
+        var width = 960,
+            height = 500;
+            
+        radius = Math.min(width, height) / 2.2;
+        
+        labelr = radius + 10;
+            
+
+        colorsss = d3.scale.category20c(); 
+        
+        arc = d3.svg.arc()
+            .outerRadius(radius - 10)
+            .innerRadius(0);
+
+        pie = d3.layout.pie()
+            .sort(null)
+            .value(function(d) { return d.weight; });
+
+        the_pie_svg = d3.select("#pie_chart").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+          .append("g")
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+            
+        update_pie_chart(piechart_data);
+    }
+        
+    //http://stackoverflow.com/questions/8053424/label-outside-arc-pie-chart-d3-js        
+    function update_pie_chart(data){
+        // update the slices
+        var g = the_pie_svg.selectAll(".arc")
+            .data(pie(data));
+
+        g.enter().append("path")
+            .attr("class", "arc")
+            .attr("d", arc)
+            .style("fill", function (d, i) { return colorsss(i); });
+
+        g.attr("d", arc); 
+
+        var g = the_pie_svg.selectAll(".label")
+            .data(pie(data));
+
+        // update the labels
+        g.enter().append("text")
+            .attr("class", "label")
+            .attr("dy", ".35em")
+            .style("text-anchor", function (d) {
+                // are we past the center?
+                return (d.endAngle + d.startAngle)/2 > Math.PI ?"end" : "start";
+            })
+            .text(function(d) { return d.data.weight > 0 ?  d.data.algo : ''; });   
+
+        g.attr("transform",  function (d) {
+            var c = arc.centroid(d),
+                x = c[0],
+                y = c[1],
+                // pythagorean theorem for hypotenuse
+                h = Math.sqrt(x*x + y*y);
+            return "translate(" + (x/h * labelr) +  ',' + (y/h * labelr) +  ")"; 
+        })
+        .text(function(d) { return d.data.weight > 0 ?  d.data.algo : ''; });   
+    }
+</script>

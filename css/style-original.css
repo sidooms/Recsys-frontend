@@ -1,0 +1,104 @@
+.thebackground{
+    background: #ececec;
+}
+
+
+
+.hidden {
+   display:none;
+}
+
+
+.toright {
+    position:relative;
+    right: -460px;
+}
+
+.row-fluid [class*="span"]{
+   min-height: 1px;
+}
+
+.img-polaroid {
+    height:150px;
+    /*width:10px*/
+    margin-left:10px;
+}
+
+.border {
+    border-style:solid;
+    border-width:1px;
+}
+
+.corner {
+    margin:-20px -10px;
+}
+
+.cancel-rating
+{
+    position: relative;
+    float:right;
+    top: -10px;
+    right: -10px;
+    padding: 4px 12px;
+}
+
+.btn-liked {
+    margin-top: 4px;
+    color:#51a351;
+    font-size: 14px;
+    line-height: 20px;
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0;
+
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.movie-liked::before
+{
+    content: "Liked";
+    position: relative;
+    float:right;
+    top: -10px;
+    right: -10px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #51a351;
+    border: 1px solid #DDD;
+    color: whiteSmoke;
+    -webkit-border-radius: 4px 0 4px 0;
+    -moz-border-radius: 4px 0 4px 0;
+    border-radius: 4px 0 4px 0;
+}
+
+.movie-disliked::before
+{
+    content: "Didn't like";
+    position: relative;
+    float:right;
+    top: -10px;
+    right: -10px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #bd362f;
+    border: 1px solid #DDD;
+    color: whiteSmoke;
+    -webkit-border-radius: 4px 0 4px 0;
+    -moz-border-radius: 4px 0 4px 0;
+    border-radius: 4px 0 4px 0;
+}
+
+.resultsperpage {
+    width: 70px;
+}
+
+.movies_search_button{
+    padding-top:0px;
+    margin-left:10px;
+}
+
+.centerlabel {
+    text-align:center;
+}
