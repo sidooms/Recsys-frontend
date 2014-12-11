@@ -2,7 +2,9 @@
 
 Recsys-frontend is an easy to set up frontend for recommender systems (recsys) put together by [Simon Dooms](http://twitter.com/sidooms). 
 
-It offers an HTML-based front that allows to browse through a catalog of (the latest) movies, provide ratings and with the click of a button calculate and visualize recommendation results of multiple recommendation algorithms. Check out the screenshots folder for screenshots. A live (sandboxed) demo is available at [http://wicaserv5.intec.ugent.be/live](http://wicaserv5.intec.ugent.be/live).
+It offers an HTML-based front that allows to browse through a catalog of (the latest) movies, provide ratings and with the click of a button calculate and visualize recommendation results of multiple recommendation algorithms. Check out the screenshots folder for screenshots. 
+
+A live (sandboxed) demo is [available here](http://www.themoviebrain.com/otherprojects/live/).
 
 This project is meant to be installed on a linux-based webserver. It uses a MySQL database and integrates the [MyMediaLite](https://github.com/zenogantner/MyMediaLite) recommendation algorithms and the [MovieTweetings](https://github.com/sidooms/MovieTweetings) dataset. Other integrated projects are [MathJax](http://www.mathjax.org/), [jQuery](http://jquery.com/), [Bootstrap](https://github.com/twbs/bootstrap), [The OMDB API](http://www.omdbapi.com/), [Dragdealer JS](http://code.ovidiu.ch/dragdealer/) and [D3](http://d3js.org/).
 
